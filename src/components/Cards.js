@@ -4,14 +4,18 @@ import Card from 'react-bootstrap/Card';
 import Cardsdata from './CardData';
 import { useDispatch } from 'react-redux';
 import { Add } from '../redux/actions/action';
+import { Toast, ToastContainer } from 'react-bootstrap';
+import { Checkmark } from 'react-checkmark'
 
 export default function Cards() {
+    const [show, setShow] = useState(false);
     const [data, setData] = useState(Cardsdata);
     console.log(data);
 
     const dispatch = useDispatch();
     const send = (e) => {
         dispatch(Add(e));
+        setShow(true);
     }
 
     return (
@@ -19,7 +23,7 @@ export default function Cards() {
 
 
         <div>
-            <h1 className='mt-2'>Add to Cart Page</h1>
+            <h1 className='mt-5'>Add to Cart Page</h1>
             <div className='d-flex justify-content-center flex-wrap align-items-center'>
 
                 {
@@ -36,7 +40,16 @@ export default function Cards() {
                         </Card>
 
                     ))}
+                <div >
+                    <ToastContainer position='bottom-center'>
+                        <Toast onClose={() => setShow(false)} show={show} delay={4000} autohide>
+                            <Toast.Header>
 
+                            </Toast.Header>
+                            <Toast.Body><p><Checkmark size='xxLarge' /><strong className="me-auto" style={{ fontSize: '30px' }}>Item Added to Cart </strong></p></Toast.Body>
+                        </Toast>
+                    </ToastContainer>
+                </div>
             </div>
         </div>);
 }

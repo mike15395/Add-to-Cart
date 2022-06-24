@@ -46,8 +46,8 @@ export default function Header() {
     }, [total]);
 
     return (
-        <div>
-            <Navbar bg="dark" variant="dark">
+        <div >
+            <Navbar bg="dark" variant="dark" fixed="top">
                 <Container>
                     <Navbar.Brand href="#home">Food Store</Navbar.Brand>
                     <Nav className="me-auto">
