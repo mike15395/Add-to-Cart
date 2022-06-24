@@ -50,7 +50,7 @@ export default function CardsDetails() {
 
     return (
         <div className='container mt-2'>
-            <h1>Cart Details Page</h1>
+            <h1 className='mt-5'>Cart Details Page</h1>
             <section className='container mt-4 d-flex justify-content-center'>
                 {data.map((item, index) => (
                     <>
